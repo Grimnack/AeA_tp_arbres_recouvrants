@@ -1,4 +1,5 @@
 import random as r
+import collection import deque
 
 class GraphValue(object):
     """docstring for GraphValue"""
@@ -10,6 +11,34 @@ class GraphValue(object):
         self.poids = []
         for ligne in poids :
             self.poids.append(ligne[:])
+
+    def resteVoisinNonTag(self,tag,sommet) :
+        lesVoisins = []
+        for ligne in matrix[sommet] :
+            for i in range(ligne) :  
+                if matrix[sommet][i] :
+                    lesVoisins.append(i)
+        for voisin in lesVoisins :
+            if tag[voisin] == False :
+                return True
+        return False
+
+
+    def runPrim(self) :
+        tag = [False] * n
+        cpt = n # pour savoir si il existe toujours des sommet non marqués 
+        # initialisation d'une file vide
+        f = deque([])
+        # on marque arbitrairement un sommet
+        tag[0] = True
+        while  :
+
+
+
+
+
+
+    def runKruskal(self) :
 
 
 
