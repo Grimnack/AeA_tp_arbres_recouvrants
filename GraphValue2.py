@@ -43,5 +43,20 @@ class GraphValue(object):
         for s in t[1] :
             print(s)
 
+    def algoKruskal(self) :
+        pass
+
+def graphAlea(nbSommets, poidsMax) :
+    matrix = []
+    for i in range(nbSommets) :
+        matrix.append([-1] * nbSommets)
+    for i in range(nbSommets) :
+        for j in range(i) :
+            if 0.5 >= r.random() :
+                poidsAlea = r.randint(1,poidsMAx)
+                matrix[i][j] = poidsAlea
+                matrix[j][i] = poidsAlea
+    return GraphValue(matrix)
+
 graph = GraphValue(Graphs.matrix1)
 graph.printAlgoPrim()
