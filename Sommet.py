@@ -10,6 +10,9 @@ class Sommet(object):
 
     def __str__(self) :
         return str(self.num)
+
+    def __eq__(self,other) :
+        return self.num == other.num
         
     def getVoisins(self) :
         voisins = []
@@ -30,8 +33,9 @@ class Sommet(object):
                 voisins.append((voisin,arete))
         return voisins
 
-    def ajouteVoisin(self,sommet2,poids) :
+    def ajouteVoisin(self,sommet2,poids,graph) :
         lien = Arete(self,sommet2,poids)
+        graph.lesAretes.append(lien)
         self.aretes.append(lien)
         sommet2.aretes.append(lien)
 
