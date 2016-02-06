@@ -64,7 +64,7 @@ class GraphValue(object):
                     for sommet in ensemble2 :
                         ensemble1.append(sommet)
                     composantesConnexes.remove(ensemble2)
-        return (self.lesSommets,A)
+        return (self.lesSommets,Arete)
 
 
 def find(x,composantesConnexes) :
