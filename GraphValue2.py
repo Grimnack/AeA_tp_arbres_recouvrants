@@ -19,6 +19,9 @@ class GraphValue(object):
                     lesSommets[i].ajouteVoisin(lesSommets[j],matrix[i][j],self)
         self.lesSommets = lesSommets    
 
+    def resetSommets(self) :
+        for sommet in self.lesSommets:
+            sommet.tag = False
 
     def algoPrim(self) :
         F = set([])
@@ -33,10 +36,12 @@ class GraphValue(object):
                 F.add(arete)
                 nonMarques.extend(y.getVoisinsNonMarques())
             nonMarques.remove((y,arete))
+        self.resetSommets()
         return (F,visited)
 
     def printAlgoPrim(self) :
         t = self.algoPrim()
+        print("Algorithme Prim")
         print("aretes")
         for a in t[0] :
             print(a)
@@ -72,6 +77,7 @@ class GraphValue(object):
 
     def printAlgoKruskal(self) :
         t = self.algoKruskal()
+        print("Algorithme Kruskal")
         print("aretes")
         for a in t[0] :
             print(a)
@@ -107,5 +113,8 @@ def graphAlea(nbSommets, poidsMax, p) :
     return GraphValue(matrix)
 
 graph = GraphValue(Graphs.matrix1)
+graph.printAlgoPrim()
+graph.printAlgoKruskal()
+
 graph.printAlgoPrim()
 graph.printAlgoKruskal()
