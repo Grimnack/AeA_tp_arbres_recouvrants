@@ -46,11 +46,12 @@ class GraphValue(object):
 
     def algoKruskal(self) :
         A = []
+        visited = set([])
         lesAretes = self.lesAretes[:]
         composantesConnexes = []
         for sommet in self.lesSommets :
             composantesConnexes.append([sommet])
-        lesAretes.sort(cmp=compAretes)
+        lesAretes.sort(key=lambda arete: arete.poids)
         for arete in lesAretes :
             ensemble1 = find(arete.sommet1,composantesConnexes)
             ensemble2 = find(arete.sommet2,composantesConnexes)
@@ -64,8 +65,20 @@ class GraphValue(object):
                     for sommet in ensemble2 :
                         ensemble1.append(sommet)
                     composantesConnexes.remove(ensemble2)
-        return (self.lesSommets,Arete)
+        for arete in A:
+            visited.add(arete.sommet1.num)
+            visited.add(arete.sommet2.num)
+        return (A, visited)
 
+    def printAlgoKruskal(self) :
+        t = self.algoKruskal()
+        print("aretes")
+        for a in t[0] :
+            print(a)
+        print("sommets")
+        for s in t[1] :
+            print(s)
+    
 
 def find(x,composantesConnexes) :
     for ensemble in composantesConnexes :
@@ -81,17 +94,18 @@ def compAretes(a1,a2) :
     else :
         return 0
 
-def graphAlea(nbSommets, poidsMax) :
+def graphAlea(nbSommets, poidsMax, p) :
     matrix = []
     for i in range(nbSommets) :
         matrix.append([-1] * nbSommets)
     for i in range(nbSommets) :
         for j in range(i) :
-            if 0.5 >= r.random() :
-                poidsAlea = r.randint(1,poidsMAx)
+            if p >= r.random() :
+                poidsAlea = r.randint(1,poidsMax)
                 matrix[i][j] = poidsAlea
                 matrix[j][i] = poidsAlea
     return GraphValue(matrix)
 
 graph = GraphValue(Graphs.matrix1)
 graph.printAlgoPrim()
+graph.printAlgoKruskal()
