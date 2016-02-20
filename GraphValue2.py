@@ -23,6 +23,13 @@ class GraphValue(object):
         for sommet in self.lesSommets:
             sommet.tag = False
 
+    def getBranchFrom(self, s1):
+        aretesS1 = []
+        for arete in self.lesAretes:
+            if(arete.sommet1.num == s1):
+                aretesS1.append(arete)
+        return aretesS1
+            
     def algoPrim(self) :
         F = set([])
         visited = [self.lesSommets[0]]
@@ -112,9 +119,9 @@ def graphAlea(nbSommets, poidsMax, p) :
                 matrix[j][i] = poidsAlea
     return GraphValue(matrix)
 
-graph = GraphValue(Graphs.matrix1)
-graph.printAlgoPrim()
-graph.printAlgoKruskal()
-
-graph.printAlgoPrim()
-graph.printAlgoKruskal()
+#graph = GraphValue(Graphs.matrix1)
+#graph.printAlgoPrim()
+#graph.printAlgoKruskal()
+#
+#graph.printAlgoPrim()
+#graph.printAlgoKruskal()
