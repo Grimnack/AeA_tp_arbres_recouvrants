@@ -1,4 +1,4 @@
-import GraphValue2 as gv
+import GraphValue as gv
 import Graphs
 from Sommet import Sommet
 from Arete import Arete

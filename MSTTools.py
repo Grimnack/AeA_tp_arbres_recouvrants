@@ -1,4 +1,4 @@
-import GraphValue2 as gv
+import GraphValue as gv
 import matplotlib.pyplot as plt
 import time
 import numpy as np
