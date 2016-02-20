@@ -1,3 +1,4 @@
+
 import GraphValue as gv
 import matplotlib.pyplot as plt
 import time
@@ -43,10 +44,10 @@ def moyenne50Couverture(n,p,algo) :
     return float(sommeC)/50.
 
 
-def plotCouvertureTaille() :
+def plotPoidsTaille() :
     plt.xlabel('taille')
     x = np.linspace(10,30,num=9)
-    plt.ylabel('couverture')
+    plt.ylabel('poids')
     y = np.zeros((3,9))
     for i in range(2) :
         for j in range(9) :
@@ -57,10 +58,10 @@ def plotCouvertureTaille() :
     plt.legend()
     plt.show()
 
-def plotCouvertureProba() :
+def ploPoidseProba() :
     plt.xlabel('probabilité')
     x = np.linspace(0.1,0.9,num=9)
-    plt.ylabel('couverture')
+    plt.ylabel('poids')
     y = np.zeros((3,9))
     for i in range(2) :
         for j in range(9) :
@@ -99,8 +100,8 @@ def plotTempsProba() :
     plt.legend()
     plt.show()
 
-plotCouvertureTaille()
-plotCouvertureProba()
+plotPoidsTaille()
+ploPoidseProba()
 plotTempsTaille()
 plotTempsProba()
 # print(moyenne50Temps(50,0.5,0))
